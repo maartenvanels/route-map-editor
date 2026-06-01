@@ -77,7 +77,7 @@ In de editor kun je plaatsnamen slepen, font en kleuren aanpassen, lagen aan/uit
 
 ## Online delen via GitHub Pages
 
-De map `docs/` is klaar om direct via GitHub Pages gepubliceerd te worden. De publieke Pages-versie bevat alleen de editor, niet je prive-routekaart.
+De map `docs/` is klaar om direct via GitHub Pages gepubliceerd te worden. De publieke Pages-versie bevat de editor en de routekaart als standaard SVG.
 
 GitHub-instelling:
 
@@ -85,7 +85,7 @@ GitHub-instelling:
 - Branch: `main`
 - Folder: `/docs`
 
-Daarna opent `index.html` automatisch de editor. De ander kan daar zelf een SVG uploaden, bewerken en weer exporteren.
+Daarna opent `index.html` automatisch de editor met `docs/output/route-map.svg`. De ander kan daar ook zelf een andere SVG uploaden, bewerken en weer exporteren.
 
 ## Basemap
 
