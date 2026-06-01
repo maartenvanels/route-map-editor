@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Routekaart editor</title>
+    <link rel="stylesheet" href="editor.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="canvas-panel">
+        <header class="topbar">
+          <div>
+            <h1>Routekaart editor</h1>
+            <p id="status">SVG laden...</p>
+          </div>
+          <div class="toolbar">
+            <label>
+              Voorbeeld
+              <select id="sourceSvg">
+                <option value="output/route-map.svg">Curved route</option>
+                <option value="output/route-map-straight.svg">Straight route</option>
+              </select>
+            </label>
+            <label>
+              Upload SVG
+              <input id="uploadSvg" type="file" accept=".svg,image/svg+xml">
+            </label>
+            <label>
+              Zoom
+              <input id="zoom" type="range" min="45" max="180" value="100">
+            </label>
+            <button id="reloadSvg" type="button">Herlaad</button>
+            <button id="exportSvg" type="button">Exporteer SVG</button>
+          </div>
+        </header>
+        <div class="map-frame">
+          <div id="svgSlot" class="svg-slot"></div>
+        </div>
+      </section>
+
+      <aside class="controls-panel">
+        <section class="control-section">
+          <h2>Label</h2>
+          <label>
+            Plaatsnaam
+            <select id="labelSelect"></select>
+          </label>
+          <div class="two-col">
+            <label>
+              X
+              <input id="labelX" type="number" step="1">
+            </label>
+            <label>
+              Y
+              <input id="labelY" type="number" step="1">
+            </label>
+          </div>
+          <label>
+            Uitlijning
+            <select id="labelAnchor">
+              <option value="start">Links</option>
+              <option value="middle">Midden</option>
+              <option value="end">Rechts</option>
+            </select>
+          </label>
+          <label>
+            Font
+            <select id="fontFamily">
+              <option value="Inter, Arial, sans-serif">Inter / Arial</option>
+              <option value="Georgia, serif">Georgia</option>
+              <option value="'Trebuchet MS', Arial, sans-serif">Trebuchet</option>
+              <option value="'Aptos', 'Segoe UI', Arial, sans-serif">Aptos</option>
+              <option value="'Courier New', monospace">Courier</option>
+            </select>
+          </label>
+          <div class="two-col">
+            <label>
+              Grootte
+              <input id="labelSize" type="number" step="1" min="6">
+            </label>
+            <label>
+              Rand
+              <input id="labelStrokeWidth" type="number" step="0.5" min="0">
+            </label>
+          </div>
+          <div class="two-col">
+            <label>
+              Tekst
+              <input id="labelFill" type="color">
+            </label>
+            <label>
+              Outline
+              <input id="labelStroke" type="color">
+            </label>
+          </div>
+        </section>
+
+        <section class="control-section">
+          <h2>Route</h2>
+          <div class="two-col">
+            <label>
+              Kleur
+              <input id="routeColor" type="color" value="#c2410c">
+            </label>
+            <label>
+              Breedte
+              <input id="routeWidth" type="number" min="1" step="0.5">
+            </label>
+          </div>
+          <label>
+            Lijntype
+            <select id="linePattern">
+              <option value="solid">Doorgetrokken</option>
+              <option value="dash">Gestreept</option>
+              <option value="dot">Gestippeld</option>
+              <option value="dashdot">Dash-dot</option>
+            </select>
+          </label>
+          <div class="two-col">
+            <label>
+              Halo
+              <input id="haloWidth" type="number" min="0" step="0.5">
+            </label>
+            <label>
+              Opacity
+              <input id="routeOpacity" type="range" min="0.2" max="1" step="0.05" value="1">
+            </label>
+          </div>
+        </section>
+
+        <section class="control-section">
+          <h2>Lagen</h2>
+          <div id="layerToggles" class="layer-list"></div>
+        </section>
+
+        <section class="control-section">
+          <h2>Achtergrond</h2>
+          <div class="two-col">
+            <label>
+              Canvas
+              <input id="backgroundColor" type="color" value="#f7f3ea">
+            </label>
+            <label>
+              Land
+              <input id="landColor" type="color" value="#e5dfd2">
+            </label>
+          </div>
+          <div class="two-col">
+            <label>
+              Bos
+              <input id="forestColor" type="color" value="#9fbe86">
+            </label>
+            <label>
+              Velden
+              <input id="farmlandColor" type="color" value="#dfe7c7">
+            </label>
+          </div>
+          <div class="two-col">
+            <label>
+              Water
+              <input id="waterColor" type="color" value="#a8cfe0">
+            </label>
+            <label>
+              Wegen
+              <input id="roadColor" type="color" value="#b9aea0">
+            </label>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <script src="editor.js"></script>
+  </body>
+</html>

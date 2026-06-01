@@ -1,0 +1,5 @@
+/data/
+/output/
+/share/
+__pycache__/
+*.log
